@@ -1,7 +1,7 @@
 # General TODOS
 
-## TODO(Together): Create the home page structure for index.html
-## TODO: Create Blog Post HTML structure and styling
+## ok(Together): Create the home page structure for index.html
+## ok: Create Blog Post HTML structure and styling
 
 It needs to follow a class structure like this:
 
@@ -20,12 +20,12 @@ It needs to follow a class structure like this:
 ### HINT: Use Unsplash for image to test
 ### HINT: Set the .post-image to have flex-basis: 40%;
 
-## TODO: Add nice hover effect for the blog post
+## ok: Add nice hover effect for the blog post
 
 ### HINT: use translate3d and transition
 ### HINT: Hover box shadow `box-shadow: 0 2rem 5rem 0 rgba(0,0,0,.1);`
 
-## TODO: Add the New Post Button Styling 
+## ok: Add the New Post Button Styling 
 
     background-color: #004186;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
