@@ -73,7 +73,7 @@ header::before {
     padding: 16px 16px;
 }
 
-.post {
+.post, .post2 {
     display: flex;
     border: 1px solid #eaceee;
     border-radius: 8px;
@@ -166,4 +166,26 @@ footer {
     border: 1px solid #004186;
     border-radius: 4px;
     padding: 4px 8px;
+}
+
+.post2:hover {
+    /* transform: translate3d(0, -5px, 0); */
+    transform: translate(0, -5px);
+
+}
+
+.post2 .post-content {
+    position: relative;
+}
+
+.post2 .post-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 255, 0, 0.1);
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.5);
+
 }
