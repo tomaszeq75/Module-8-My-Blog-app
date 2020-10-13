@@ -9,6 +9,13 @@ const API_BASE_URL = "http://localhost:3000/";
 
 window.onload = () => {
     getPost();
+    getPostIdParam();
+}
+
+const getPostIdParam = () => {
+    const queryString = window.location.search;
+    urlParams = new URLSearchParams(queryString)
+    console.log(urlParams);
 }
 
 const getPost = () => {

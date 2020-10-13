@@ -10,8 +10,8 @@ window.onload = () => {
 
 const getPosts = () => {
     fetch(API_URL, {
-            method: "GET",
-        })
+        method: "GET",
+    })
         .then((response) => {
             return response.json();
         })
@@ -21,26 +21,28 @@ const getPosts = () => {
 };
 
 const buildPosts = (blogPosts) => {
-    let blogPostsContent = '';
+    let blogPostsContent = "";
     for (const blogPost of blogPosts) {
-        const postDate = new Date(parseInt(blogPost.added_date)).toDateString();
+        const postDate = new Date(parseInt(blogPost.added_date)).toLocaleDateString();
         const postImage = `${API_BASE_URL}${blogPost.post_image}`;
-        console.log(postImage);
+        const postLink = `/Module-8-My-Blog-app/exercises/post.html?id=${blogPost.id}`; // oryginalnie było od /post.html..
         blogPostsContent += `
-        <div class="post">
-            <div class="post-image"></div>
-            <div class="post-content">
-                <div class="post-date">${postDate}</div>
-                <div class="post-title">
-                    <h3>${blogPost.title}</h3>
-                </div>
-                <div class="post-text">
-                    ${blogPost.content}
+        <a class="post-link" href="${postLink}">
+            <div class="post">
+                <div class="post-image" style="background-image: url(${postImage})"></div>
+                <div class="post-content">
+                    <div class="post-date">${postDate}</div>
+                    <div class="post-title">
+                        <h3>${blogPost.title}</h3>
+                    </div>
+                    <div class="post-text">
+                        ${blogPost.content}
+                    </div>
                 </div>
             </div>
-        </div>
-        `
+        </a>    
+        `;
     }
 
-    document.querySelector('.main-container').innerHTML = blogPostsContent;
+    document.querySelector(".main-container").innerHTML = blogPostsContent;
 };
