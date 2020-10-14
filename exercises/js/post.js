@@ -9,22 +9,33 @@ const API_BASE_URL = "http://localhost:3000/";
 
 window.onload = () => {
     getPost();
-    getPostIdParam();
+    console.log(getPostIdParam());
 }
 
 const getPostIdParam = () => {
     const queryString = window.location.search;
-    urlParams = new URLSearchParams(queryString)
-    console.log(urlParams);
+    const urlParams = new URLSearchParams(queryString);
+    return urlParams.get('id');
 }
 
 const getPost = () => {
-    // CODE GOES HERE
+    const postUrl = `${API_URL}${getPostIdParam()}`
+    fetch(postUrl, {
+        method: 'GET'
+    }).then((response) => {
+        return response.json()
+    }).then((data) => {
+        return buildPost(data)
+    })
 }
 
-const buildPost = (data) => {
-    // HINT: Convert the date number to a Date string 
+const buildPost = (postData) => {
+    const postDate = new Date(parseInt(postData.added_date)).toLocaleDateString()
+    const postImage = `${API_BASE_URL}${postData.post_image}`;
+
+    document.getElementById('individual-post-title').innerHTML = postData.title;
+    document.getElementById('individual-post-date').innerHTML = postDate;
+    document.getElementById('individual-post-content').innerHTML = postData.content;
+
+    document.getElementsByTagName('header')[0].style.backgroundImage = `url(${postImage})`;
 }
-
-
-
